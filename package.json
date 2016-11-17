@@ -1,0 +1,13 @@
+{
+  "name": "main",
+  "description": "sg-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "iconv": "^2.2.1",
+    "json2csv": "^3.7.1",
+    "ng-sortable": "^1.3.6",
+    "node-cron": "^1.1.2",
+    "xhr2": "^0.1.3"
+  },
+  "devDependencies": {}
+}
