@@ -1,4 +1,7 @@
 module.exports = {
+    app: {
+        port: 8080
+    },
     db: {
         mongodb: 'mongodb://localhost/slogup',
         redis: 'redis://52.78.86.4:6379',

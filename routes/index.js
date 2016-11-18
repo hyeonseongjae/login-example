@@ -1,6 +1,4 @@
-var CONFIG = require('../../bridge/config/env');
-var express = require('express');
-module.exports = function (app) {
-    require('./api')(app, CONFIG.app.apiName);
-    require('./sample')(app);
+module.exports = function(app) {
+    require('./main')(app);
+    require('./admin')(app);
 };
