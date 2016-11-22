@@ -1,0 +1,10 @@
+
+<div data-ng-if="vm.isLoggedIn()">
+    <p>{{vm.userInfo.email}}</p>
+    <p>{{vm.userInfo.nick}}</p>
+
+    <button data-ng-click="vm.logout()">로그아웃</button>
+    <div style="margin-top: 5px;">
+        <a href="#" data-ng-click="deleteUser()">{{'userDelete' | translate}}</a>
+    </div>
+</div>

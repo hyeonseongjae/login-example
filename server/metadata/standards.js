@@ -137,7 +137,7 @@ var standards = {
         "isMoreSocialInfo": true, // 소셜가입할때 추가정보가 필요할경우.
         "isAutoVerifiedEmail": false,
         "isJoinFriendNotifications": true,
-        "isUseS3Bucket": true,
+        "isUseS3Bucket": false,
         "isUseRedis": false,
         "isUseHttps": false,
         "isDuplicatedLogin": false,

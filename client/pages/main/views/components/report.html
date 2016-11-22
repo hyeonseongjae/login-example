@@ -1,0 +1,43 @@
+<div ng-controller="ReportCtrl">
+
+    <div ng-if="vm.reportItems.list.length > 0">
+
+        <ul>
+            <li ng-repeat="item in vm.reportItems.list"  ng-click="vm.clickReport(item)" >
+                <figure>
+                    <span>{{item.body}}</span>
+                </figure>
+            </li>
+        </ul>
+
+        <button class="btn btn-success" ng-click="vm.clickReport()">생성 </button>
+    </div>
+
+    <div class="modal fade "  id="report-modal"  ng-controller="ReportModalCtrl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-xs " data-dismiss="modal" aria-hidden="true" ng-click="vm.closeModal()">&times;</button>
+                    <h4 class="modal-title">Notice </h4>
+                </div>
+                <div class="modal-body" >
+                    <div title="Login form" >
+                        <form role="form" name="reportForm" ng-submit="vm.reportSend(vm.reportDetailItem)">
+
+                        <div class="form-group">
+                            <label for="body">body</label>
+                            <input type="text" class="form-control" id="body" name="body" ng-model="vm.reportDetailItem.body" />
+                        </div>
+                        <button type="submit" class="btn btn-success submit">Submit</button>
+                        <button type="button" class="btn btn-danger" ng-show="vm.reportDetailItem.id" ng-click="vm.reportDelete(vm.reportDetailItem)">delete</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

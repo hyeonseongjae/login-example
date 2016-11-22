@@ -11,7 +11,7 @@ export default function routes($stateProvider) {
                 templateUrl: 'pages/sample/views/layouts/footer.html'
             },
             'contents': {
-                templateUrl: 'pages/sample/views/layouts/main-contents.html'
+                templateUrl: 'pages/sample/views/layouts/main-content.html'
             }
         }
     }).state('route1', {

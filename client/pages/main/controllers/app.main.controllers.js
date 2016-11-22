@@ -1,17 +1,43 @@
-export default function MainCtrl($scope, $location, sessionManager, errorHandler, metaManager, navigator) {
-    $scope.isLoggedIn = {};
-    $scope.loginForm = {};
-    var form = $scope.form = {}
-    var userInfo = $scope.userInfo = {}
+export default function MainCtrl($scope, $location, $cookies, sessionManager, errorHandler, metaManager, navigator, UserManager, dialogHandler, $uibModal) {
 
-    $scope.isLoggedIn = sessionManager.isLoggedIn;
-
-    $scope.signUp = signUp;
-    $scope.logout = logout;
-    $scope.login = login;
-    $scope.goToSignUp = goToSignUp;
-    $scope.goToLogin = goToLogin;
+    var vm = $scope.vm = {};
     
+    vm.isLoggedIn = {};
+    vm.loginForm = {};
+    var form = vm.form = {};
+    vm.userInfo = {};
+
+    vm.isLoggedIn = sessionManager.isLoggedIn;
+
+    vm.signUp = signUp;
+    vm.logout = logout;
+    vm.login = login;
+    vm.goToSignUp = goToSignUp;
+    vm.goToLogin = goToLogin;
+    vm.dialogHandler = dialogHandler;
+
+
+    if(vm.isLoggedIn()){
+        checkLogined();
+    }
+
+    function checkLogined(){
+        var userId = $cookies.get("userId");
+        var userInfo = $cookies.get("userInfo");
+
+        UserManager.getLoginedUserInfoById(userId, function (status, data) {
+            if (status == 200) {
+
+                vm.userInfo.email = data.email;
+                vm.userInfo.nick = data.nick;
+
+            } else {
+                // vm.exitApp();
+            }
+        });
+
+    }
+
     function goToSignUp() {
         navigator.goToSignUp();
     }
@@ -21,14 +47,17 @@ export default function MainCtrl($scope, $location, sessionManager, errorHandler
     }
 
     function signUp(signUpForm) {
-        console.log(signUpForm);
+
         var user = {
-            secret: form.pass,
-            uid: form.email,
-            nick: form.nick,
+            secret: signUpForm.pass,
+            uid: signUpForm.email,
+            nick: signUpForm.nick,
             agreedEmail: true,
             type: metaManager.std.user.defaultSignUpType
         };
+
+
+
         sessionManager.signup(user, function (status, data) {
             if (status == 201) {
                 console.log(data);
@@ -49,11 +78,16 @@ export default function MainCtrl($scope, $location, sessionManager, errorHandler
     }
 
     function login (loginForm) {
-        sessionManager.loginWithEmail(form.email, form.pass, function (status, data) {
+        sessionManager.loginWithEmail(loginForm.email, loginForm.pass, function (status, data) {
             if (status == 200) {
-                $scope.form = {};
-                userInfo.email = data.email;
-                userInfo.nick = data.nick;
+
+
+                vm.userInfo.email = data.email;
+                vm.userInfo.nick = data.nick;
+
+                $cookies.put("userId", data.id);
+                $cookies.put("userInfo", data.email);
+
                 navigator.goToHome();
             } else {
                 errorHandler.alertError(status, data);
@@ -62,13 +96,19 @@ export default function MainCtrl($scope, $location, sessionManager, errorHandler
     }
 
     function deleteUser(deleteForm) {
-        console.log("회원 탈퇴함 ㅋㅋㅋ");
-        sessionManager.deleteUser(userInfo.email, function (status, data) {
+
+        sessionManager.deleteUser(deleteForm.email, function (status, data) {
             if (status == 204) {
+                $cookies.remove("userinfo");
+                $cookies.remove("userId");
                 logout();
             } else {
                 errorHandler.alertError(status, data);
             }
         });
     }
+
+
+
+
 }

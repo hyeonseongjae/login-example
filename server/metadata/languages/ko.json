@@ -170,6 +170,7 @@
   "companyAddress": "회사주소",
   "companyPhoneNum": "회사전화번호",
   "userInfo": "유저정보",
+  "userDelete": "회원탈퇴",
   "notification": "메세지 알림",
   "notificationBox": "메세지 알림 박스",
   "loginHistory": "로그인 기록",

@@ -1,0 +1,28 @@
+<div id="sg-login-wrapper">
+
+    <div id="formWrapper" data-ng-if="!isLoggedIn()">
+
+        <img src="/pages/main/assets/images/cropped-logo.png" style="width: 20%">
+
+        <div id="logo"></div>
+
+        <form id="loginForm" name="loginForm" data-ng-submit="vm.login(loginForm)" novalidate>
+
+            <div class="input-wrapper">
+                <input type="email" name="userEmail" id="userEmail" data-ng-model="loginForm.email" placeholder="Email" required />
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" name="userPass" id="userPass" data-ng-model="loginForm.pass" placeholder="Password" required />
+            </div>
+
+            <div>
+                <button data-ng-disabled="loginForm.$invalid" type="submit">{{'login' | translate}}</button>
+            </div>
+            <div style="margin-top: 5px;">
+                <a  href="#" data-ng-click="vm.goToSignUp()">{{'signUp' | translate}}</a>
+            </div>
+
+        </form>
+    </div>
+</div>

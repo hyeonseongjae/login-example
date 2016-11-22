@@ -1,0 +1,13 @@
+
+<div id="sg-index-wrap" data-ng-controller="IndexCtrl">
+    <div ng-if="!vm.isLoggedIn()">
+        <a href="#" ng-click="vm.goToLogin()">login</a>
+        <a href="#" ng-click="vm.goToSignUp()">sign up</a>
+    </div>
+    <div ng-if="vm.isLoggedIn()">
+        <a href="#" ng-click="vm.goToNotice()">notice</a>
+        <a href="#" ng-click="vm.goToReport()">report</a>
+        <a href="#" ng-click="vm.logout()">로그아웃</a>
+    </div>
+    <div id="sg-index-contents" ui-view></div>
+</div>

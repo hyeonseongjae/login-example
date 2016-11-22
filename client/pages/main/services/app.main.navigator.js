@@ -7,6 +7,8 @@ export default function navigator($document, $state) {
     this.goToSignUp = goToSignUp;
     this.goToHome = goToHome;
     this.goToLogin = goToLogin;
+    this.goToNotice = goToNotice;
+    this.goToReport = goToReport;
 
     var self = this;
 
@@ -28,14 +30,26 @@ export default function navigator($document, $state) {
     }
 
     function goToSignUp() {
-        goTo("signUp");
+        goTo("index.signUp");
     }
 
     function goToHome() {
-        goTo("home");
+        goTo("index.home");
     }
 
     function goToLogin() {
-        goTo("login");
+        goTo("index.login");
+    }
+
+    function goToSignUp(){
+        goTo("index.signup");
+    }
+
+    function goToNotice() {
+        goTo("index.notice");
+    }
+
+    function goToReport() {
+        goTo("index.notice");
     }
 }

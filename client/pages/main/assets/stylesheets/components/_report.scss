@@ -1,0 +1,14 @@
+#report-modal{
+  &.in{
+    display: block !important;
+  }
+
+  .close{
+    width: 50px;
+    height: 25px;
+  }
+
+  .submit{
+    width: 70px;
+  }
+}

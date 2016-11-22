@@ -6,25 +6,25 @@
 
         <div id="logo"></div>
 
-        <form id="signUpForm" name="signUpForm" data-ng-submit="signUp(signUpForm)">
+        <form id="signUpForm" name="signUpForm" data-ng-submit="vm.signUp(signUpForm)">
 
             <div class="input-wrapper">
-                <input type="text" name="userNick" id="userNick" data-ng-model="form.nick" placeholder="닉네임" />
+                <input type="text" name="userNick" id="userNick" data-ng-model="signUpForm.nick" placeholder="닉네임" />
             </div>
 
             <div class="input-wrapper">
-                <input type="email" name="userEmail" id="userEmail" data-ng-model="form.email" placeholder="Email" />
+                <input type="email" name="userEmail" id="userEmail" data-ng-model="signUpForm.email" placeholder="Email" />
             </div>
 
             <div class="input-wrapper">
-                <input type="password" name="userPass" id="userPass" data-ng-model="form.pass" placeholder="Password" />
+                <input type="password" name="userPass" id="userPass" data-ng-model="signUpForm.pass" placeholder="Password" />
             </div>
 
             <div>
                 <button type="submit">{{'signUp' | translate}}</button>
             </div>
             <div style="margin-top: 5px;">
-                <a href="javascript:;" data-ng-click="goToLogin()">{{'cancel' | translate}}</a>
+                <a href="#" data-ng-click="vm.goToLogin()">{{'cancel' | translate}}</a>
             </div>
 
         </form>
