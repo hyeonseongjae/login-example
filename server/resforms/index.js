@@ -1,2 +1,2 @@
-module.exports.user = require('./accounts.user');
-module.exports.notification = require('./etc.notification');
+module.exports.user = require('./accounts.user.js');
+module.exports.notification = require('./etc.notification.js');

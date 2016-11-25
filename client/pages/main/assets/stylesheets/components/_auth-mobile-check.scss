@@ -1,0 +1,102 @@
+.container-wrapper {
+  .container {
+    .content {
+      &.mobile-confirm .content-header p,
+      &.find-pass .content-header p {
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.79;
+        color: rgba(41, 41, 41, 0.6);
+      }
+
+      &.mobile-confirm {
+        .content-body {
+
+          .img-wrapper{
+            border-radius: 50%;
+            border: solid 1px #c5cfd3;
+            width: 120px;
+            height: 120px;
+            margin: 0px auto 60px;
+            text-align: center;
+
+            img{
+              width: 60px;
+              height: 60px;
+              margin-top: 30px;
+            }
+          }
+
+          .mobile-confirm-wrapper{
+            width: 452px;
+            height: 55px;
+            border: solid 1px #bfbfbf;
+            margin-bottom: 15px;
+            position: relative;
+
+            input{
+              border: none;
+              width: 325px;
+              height: 100%;
+              padding-left: 30px;
+            }
+
+            button{
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 125px;
+              height: 54px;
+              border: none;
+              background-color: #464646;
+              font-size: 20px;
+              font-weight: 300;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 0.79;
+              letter-spacing: -0.4px;
+              text-align: center;
+              color: #ffffff;
+            }
+
+            span{
+              position: absolute;
+              top: 15px;
+              right: 150px;
+            }
+          }
+
+          .find-id{
+            .find-id-wrapper{
+              text-align: center;
+            }
+            a.btn-submit{
+              display: inline-block;
+              font-size: 20px;
+              margin: 50px auto;
+              padding-top: 20px;
+              height: 60px;
+            }
+          }
+        }
+
+        .certification-wrapper{
+          width: 452px;
+          height: 55px;
+          border: solid 1px #bfbfbf;
+          margin-bottom: 15px;
+          input{
+            width : 100%;
+            border: none;
+            height: 100%;
+            padding-left: 30px;
+          }
+        }
+      }
+
+
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="container auth signup" data-ng-controller="SigninCtrl">
+
+
+    <div class="content signin">
+        <div class="content-header">
+            <h3>로그인</h3>
+        </div>
+        <div class="content-body">
+            <div class="social-signin-wrapper">
+                <div class="facebook">
+                    <a href="#" ng-click="vm.facebookLogin()">페이스북 계정으로 시작하기</a>
+                </div>
+                <div class="kakaotalk">
+                    <a href="#" ng-click="vm.kakaoLogin()">카카오톡 계정으로 시작하기</a>
+                </div>
+            </div>
+
+            <div class="hr">
+                <span>또는</span>
+            </div>
+            <form id="signinForm" name="signinForm" data-ng-submit="vm.signin(signinForm)" novalidate>
+                <div class="signin-wrapper">
+                    <div class="signin-id-wrapper">
+                        <input type="text" placeholder="아이디" data-ng-model="signinForm.uid" />
+                    </div>
+                    <div class="signin-pass-wrapper">
+                        <input type="password" placeholder="비밀번호" data-ng-model="signinForm.pass" />
+                    </div>
+
+                    <button type="submit">로그인</button>
+                    <div class="save-pass">
+                        <div class="checks">
+                            <input type="checkbox" id="ex_chk">
+                            <label for="ex_chk">비밀번호 저장</label>
+                        </div>
+                    </div>
+                    <div class="find-pass">
+                        <p><a href="#" data-ng-click="vm.goToFindId()">아이디</a>/<a href="#" data-ng-click="vm.goToFindPass()">비밀번호찾기</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="content-footer">
+            <div class="signup-wrapper">
+                <span>도와도가 처음이신가요?</span>
+                <a href="#" data-ng-click="vm.goToSignUp()">회원가입</a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

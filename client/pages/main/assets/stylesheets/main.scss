@@ -1,5 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
 @import "layouts/main-contents";
+@import "layouts/reset";
+
 @import "components/notice";
 @import "components/report";
+@import "components/auth";
+@import "components/auth-complete";
+@import "components/auth-signin";
+@import "components/auth-signup-social";
+@import "components/auth-mobile-check";

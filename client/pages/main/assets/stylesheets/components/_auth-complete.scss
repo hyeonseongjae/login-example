@@ -1,0 +1,58 @@
+
+
+.container-wrapper {
+  .container {
+    .content {
+      &.sign-complete {
+        .content-body {
+          .img-wrapper {
+            text-align: center;
+            img {
+              width: 250px;
+              height: 250px;
+              border-radius: 50%;
+            }
+          }
+          .button-wrapper {
+            margin-top: 70px;
+            a.btn {
+              width: 220px;
+              height: 60px;
+              display: inline-block;
+              text-align: center;
+              font-size: 20px;
+              font-weight: 300;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 60px;
+              letter-spacing: -0.4px;
+              &.recommend {
+                color: #ffffff;
+                background-color: #464646;
+                border: 1px solid #464646;
+              }
+              &.profile {
+                color: #464646;
+                border: 1px solid #464646;
+              }
+            }
+          }
+        }
+        .content-footer {
+          margin: 50px 0 0 0;
+          padding-bottom: 50px;
+          p {
+            font-size: 20px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.79;
+            letter-spacing: -0.4px;
+            text-align: center;
+            color: #464646;
+          }
+        }
+      }
+    }
+  }
+}

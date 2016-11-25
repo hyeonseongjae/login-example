@@ -1,0 +1,85 @@
+<div class="container auth signup">
+
+    <div class="content signup-normal" data-ng-controller="SignUpCtrl">
+        <div class="content-header">
+            <h3>회원가입</h3>
+            <p>가입하고 도와도의 더 많은 기능을 이용하세요.</p>
+        </div>
+        <div class="content-body">
+            <div class="form-wrapper">
+                <form id="signupForm" name="signupForm" data-ng-submit="vm.signUp(signupForm)" validate>
+
+                    <div class="uid-wrapper">
+                        <input type="text" name="id" required data-ng-model="signupForm.uid"
+                               data-ng-pattern="/[0-9a-zA-Z.;\-!@#$%^&*]/" data-ng-minlength="vm.USER.minIdLength"
+                               data-ng-maxlength="vm.USER.maxIdLength" autofocus
+
+                                />
+                        <span class="floating-label">아이디</span>
+                        <img data-ng-hide="signupForm.id.$error.pattern || signupForm.id.$error.required ||
+                        signupForm.id.$error.minlength || signupForm.id.$error.maxlength || signupForm.id.$error.unique"
+                             src="/pages/main/assets/images/check_t_24.png" alt="">
+                    </div>
+
+                    <p class="help-block" ng-show="signupForm.id.$error.pattern">아아디에 한글은 사용할 수 없습니다.</p>
+                    <p class="help-block" ng-show="signupForm.id.$error.unique">중복 아이디 입니다. </p>
+
+
+
+
+                    <div class="pass-wrapper">
+                        <input type="password" name="password" required data-ng-model="signupForm.pass"
+                               data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
+                               data-ng-pattern="/^(\w)+$/"  />
+                        <span class="floating-label">비밀번호(6자리 이상)</span>
+                        <img data-ng-hide="signupForm.password.$error.pattern || signupForm.password.$error.required ||
+                        signupForm.password.$error.minlength || signupForm.password.$error.maxlength "
+                             src="/pages/main/assets/images/check_t_24.png" alt="">
+                    </div>
+                    <p class="help-block" ng-show="signupForm.password.$error.pattern">숫자와 문자만을 입력할 수 있습니다.</p>
+                    <p class="help-block" ng-show="signupForm.password.$error.minlength">6글자 이상을 입력하세요.</p>
+
+                    <div class="pass-confirm-wrapper">
+                        <input type="password" required name="passwordConfirm" data-ng-model="signupForm.passConfirm"
+                               data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
+                               password-verify="signupForm.pass"
+                               placeholder="" autocomplete="off" />
+                        <span class="floating-label">비밀번호 확인</span>
+                        <img data-ng-hide="signupForm.passwordConfirm.$error.pattern || signupForm.passwordConfirm.$error.required
+                        || signupForm.passwordConfirm.$error.minlength || signupForm.passwordConfirm.$error.maxlength ||
+                        signupForm.passwordConfirm.$error.passwordVerify "
+                             src="/pages/main/assets/images/check_t_24.png" alt="">
+                    </div>
+                    <p class="help-block" ng-model="signupForm.passConfirm"
+                       ng-if="signupForm.passwordConfirm.$error.passwordVerify">패스워드가 일치하지 않습니다.</p>
+
+                    <div class="hr">
+                        <span>그리고</span>
+                    </div>
+
+                    <div class="nick-wrapper">
+                        <input type="text" required  name="nickname" data-ng-model="signupForm.nick"
+                               data-ng-minlength="vm.USER.minNameLength" data-ng-minlength="vm.USER.maxNameLength" />
+                        <span class="floating-label">도와도 닉네임</span>
+                        <img data-ng-hide="signupForm.nickname.$error.pattern || signupForm.nickname.$error.required ||
+                        signupForm.nickname.$error.minlength || signupForm.nickname.$error.maxlength || signupForm.nickname.$error.unique"
+                             src="/pages/main/assets/images/check_t_24.png" alt="">
+                        <p class="help-block" ng-show="signupForm.nickname.$error.unique">중복 닉네임 입니다. </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit" ng-disabled=" !signupForm.nickname.$error && !signupForm.passwordConfirm.$error && !signupForm.id.$error"> 확인 </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="content-footer">
+            <p><a>페이스북</a> 또는 <a>카카오톡</a> 으로 3초만에 가입하기</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+
+    </footer>
+
+</div>

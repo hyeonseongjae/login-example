@@ -1,0 +1,27 @@
+<div class="container auth signup">
+
+
+    <div class="content signup-social" data-ng-controller="SignUpCtrl">
+        <div class="content-header">
+            <h3>도와도에서 사용할 이름을 정해주세요.</h3>
+            <p>회사일 경우 상호명을 적어주세요.</p>
+        </div>
+        <div class="content-body">
+            <form id="signupSocialNickForm" name="signupSocialNickForm" data-ng-submit="vm.signupSocialNick()" validate>
+                <div class="img-wrapper">
+                    <img src="http://placehold.it/120x120">
+                </div>
+
+                <div class="nick-wrapper">
+                    <input type="text" placeholder="도와도 닉네임" data-ng-model="vm.socialSignUpInfo.nick">
+                    <img src="http://cdn.directv.com/cms3/global/images/img__checklarge.png" alt="">
+                </div>
+
+                <button type="submit" class="btn btn-submit"> 확인 </button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

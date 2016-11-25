@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-wrapper {
+  background: linear-gradient(to right, #23BBC7, #2F91CB);
+  height: 100vh;
+  overflow: auto;
+
+  .header {
+    height: 80px;
+    padding: 20px 135px;
+    color: white;
+    h1 {
+      display: inline-block;
+      float: left;
+      margin-top: 10px;
+    }
+    .nav {
+      float: right;
+      margin-top: 20px;
+      ul {
+        float: right;
+        list-style: none;
+        li {
+          display: inline-block;
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+
+
+  .container {
+    min-width: 1024px;
+    max-width: 1024px;
+    margin: 0 auto;
+
+
+
+
+    .content {
+      margin: 80px 207px;
+      background-color: white;
+      box-shadow: 0 0 29.6px 10.4px rgba(4, 0, 0, 0.1);
+
+      .content-header {
+        text-align: center;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        h3 {
+          font-size: 30px;
+          font-weight: 300;
+          line-height: 1.23;
+          letter-spacing: -0.6px;
+          color: #010101;
+          padding: 50px 0 20px 0;
+        }
+        p {
+          opacity: 0.6;
+          font-size: 20px;
+          line-height: 0.79;
+          color: rgba(41, 41, 41, 0.6);
+        }
+      }
+
+
+      .content-body {
+        margin: 50px 79px;
+        .social-signup-wrapper {
+          .facebook, .kakaotalk {
+            width: 452px;
+            height: 60px;
+            font-size: 20px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.79;
+            letter-spacing: -0.4px;
+            text-align: center;
+          }
+          .facebook {
+            background-color: #4f6ca7;
+            margin-bottom: 10px;
+            a {
+              width: 100%;
+              display: block;
+              height: 100%;
+              padding-top: 20px;
+              color: #ffffff;
+            }
+          }
+          .kakaotalk {
+            background-color: #fdeb1d;
+            a {
+              width: 100%;
+              display: block;
+              height: 100%;
+              padding-top: 20px;
+              color: #553f42;
+            }
+          }
+        }
+
+        div.hr {
+          overflow: hidden;
+          text-align: center;
+          margin: 20px 0;
+          &:before, &:after {
+            background-color: #000;
+            content: "";
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 46%;
+          }
+          span {}
+        }
+
+
+        .normal-signup-wrapper {
+          .normal {
+            width: 452px;
+            height: 60px;
+            background-color: #1fc9c6;
+            font-size: 20px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.79;
+            letter-spacing: -0.4px;
+            text-align: center;
+            a, a:hover {
+              width: 100%;
+              display: block;
+              height: 100%;
+              padding-top: 20px;
+              color: #ffffff;
+              text-decoration: none;
+            }
+          }
+          p {
+            font-size: 14px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 30px;
+            letter-spacing: -0.3px;
+            text-align: center;
+            color: #010101;
+            width: 320px;
+            margin: 25px auto;
+            a {
+              color: #1fc9c6;
+            }
+          }
+        }
+      }
+
+
+      .content-body .btn.btn-submit {
+        border: none;
+        width: 452px;
+        height: 60px;
+        background-color: #1fc9c6;
+        font-size: 20px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.79;
+        letter-spacing: -0.4px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 170px;
+      }
+
+      &.signup-normal {
+        padding-bottom: 50px;
+        .content-body {
+          margin: 50px 80px 0px;
+          .img-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+            img {
+              border-radius: 50%;
+            }
+          }
+
+          .help-block{
+            margin-left: 30px;
+            margin-top: 5px;
+            font-size: 15px;
+          }
+
+          .uid-wrapper, .pass-wrapper, .pass-confirm-wrapper, .nick-wrapper {
+            width: 452px;
+            height: 55px;
+
+            margin-top: 15px;
+            position: relative;
+
+            input{
+              outline: none;
+            }
+
+            input:focus ~ .floating-label,
+            input:not(:focus):valid ~ .floating-label{
+              top: 5px;
+              bottom: 10px;
+              left: 30px;
+              font-size: 11px;
+              opacity: 1;
+
+            }
+
+            .inputText {
+              font-size: 14px;
+              width: 200px;
+              height: 35px;
+              opacity: 0.5;
+            }
+
+            .floating-label {
+              position: absolute;
+              pointer-events: none;
+              left: 30px;
+              top: 18px;
+              opacity: 0.5;
+              transition: 0.2s ease all;
+            }
+
+            input.ng-invalid {
+              background-image: none;
+              border: 1px solid #f76262;
+
+              &:focus {
+                outline-color: #f76262;
+                outline-width: 4px;
+              }
+            }
+
+            input.ng-valid{
+              border: solid 1px #1fc9c6;
+            }
+
+          }
+          .uid-wrapper input, .pass-wrapper input, .pass-confirm-wrapper input, .nick-wrapper input {
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding-left: 30px;
+            padding-top: 10px;
+            font-size: 25px;
+          }
+
+
+          .uid-wrapper img, .pass-wrapper img, .pass-confirm-wrapper img, .nick-wrapper img {
+            height: 20px;
+            position: absolute;
+            right: 20px;
+            top: 17px;
+          }
+          div.hr {
+            overflow: hidden;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            &:before, &:after {
+              background-color: #000;
+              content: "";
+              display: inline-block;
+              height: 1px;
+              position: relative;
+              vertical-align: middle;
+              width: 43%;
+            }
+          }
+          .btn.btn-submit {
+            margin: 40px 0 25px 0;
+          }
+        }
+        .content-footer {
+          margin: 20px 0;
+        }
+      }
+
+
+      .content-footer {
+        margin-top: 100px;
+        margin-bottom: 30px;
+        text-align: center;
+        p {
+          font-size: 18px;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 0.88;
+          letter-spacing: -0.4px;
+          text-align: center;
+          color: #727272;
+          a {
+            color: #1fc9c6;
+          }
+        }
+      }
+
+
+
+
+    }
+
+  }
+}
+

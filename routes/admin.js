@@ -1,7 +1,7 @@
 var routeHelper = require('sg-route-helper');
 var express = require('express');
 
-var META = require('../../bridge/metadata');
+var META = require('../../bridge/metadata/index');
 
 module.exports = function (app) {
 

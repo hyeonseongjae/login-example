@@ -49,6 +49,13 @@ var standards = {
         "enumOrders": ["createdAt"],
         "defaultOrderBy": "createdAt"
     },
+    "app": {
+        "menuKey": "Manager",
+        "enumMenus": [],
+        "defaultCountry": "KR",
+        "defaultCountryCode": "+82",
+        "timeZone": 9*60*60*1000
+    },
     "user": {
         "enumPhones": ["ios", "android"],
         "phoneIOS": "ios",
@@ -137,7 +144,7 @@ var standards = {
         "isMoreSocialInfo": true, // 소셜가입할때 추가정보가 필요할경우.
         "isAutoVerifiedEmail": false,
         "isJoinFriendNotifications": true,
-        "isUseS3Bucket": false,
+        "isUseS3Bucket": false, //로컬에서 이미지 올릴때
         "isUseRedis": false,
         "isUseHttps": false,
         "isDuplicatedLogin": false,

@@ -1,5 +1,5 @@
 
-var META = require('../../../metadata/');
+var META = require('../../../metadata/index');
 
 module.exports = {
     getUserData: function() {

@@ -6,10 +6,15 @@ export default function navigator($document, $state) {
     this.setCompleteCallback = null;
     this.goToSignUp = goToSignUp;
     this.goToHome = goToHome;
-    this.goToLogin = goToLogin;
+    this.goToSignin = goToSignin;
     this.goToNotice = goToNotice;
     this.goToReport = goToReport;
-
+    this.goToComplete = goToComplete;
+    this.goToSocial = goToSocial;
+    this.goToMobileCheck = goToMobileCheck;
+    this.goToFindId = goToFindId;
+    this.goToFindPass = goToFindPass;
+    this.goToNick = goToNick;
     var self = this;
 
     function goTo (name, param, reload, callback) {
@@ -30,26 +35,51 @@ export default function navigator($document, $state) {
     }
 
     function goToSignUp() {
-        goTo("index.signUp");
+        goTo("auth.signUp");
+    }
+
+    function goToSocial(){
+        goTo("auth.social")
     }
 
     function goToHome() {
-        goTo("index.home");
+        goTo("home");
     }
 
-    function goToLogin() {
-        goTo("index.login");
+    function goToComplete() {
+        goTo("auth.complete");
+    }
+
+    function goToSignin() {
+
+        goTo("auth.signin");
     }
 
     function goToSignUp(){
-        goTo("index.signup");
+        goTo("auth.signup");
     }
 
     function goToNotice() {
-        goTo("index.notice");
+        goTo("auth.notice");
     }
 
     function goToReport() {
-        goTo("index.notice");
+        goTo("auth.notice");
+    }
+
+    function goToMobileCheck(){
+        goTo("auth.mobileCheck");
+    }
+
+    function goToFindId(){
+        goTo("auth.findId");
+    }
+
+    function goToFindPass(){
+        goTo("auth.findPass");
+    }
+
+    function goToNick(){
+        goTo("auth.nick");
     }
 }

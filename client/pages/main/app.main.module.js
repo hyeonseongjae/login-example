@@ -16,6 +16,10 @@ import NoticeModalCtrl from './controllers/app.main.notice-modal.controllers';
 import ReportCtrl from './controllers/app.main.report.controllers';
 import ReportModalCtrl from './controllers/app.main.report-modal.controllers';
 import ModalInstanceCtrl from './controllers/app.main.modal-instance.controllers';
+import SigninCtrl from './controllers/auth/app.main.signin.controller';
+import AuthMobileCtrl from './controllers/auth/app.main.auth-mobile.controllers';
+import SignUpCtrl from './controllers/auth/app.main.signup.controllers';
+import SignUpCompleteCtrl from './controllers/auth/app.main.signup-complete.controller';
 
 import appResources from './services/app.main.constant';
 import navigator from './services/app.main.navigator';
@@ -25,8 +29,19 @@ import Notice from './services/app.main.notice.model';
 import noticeManager from './services/app.main.notices.manager';
 import reportsManager from './services/app.main.reports.manager';
 import Report from './services/app.main.report.model';
+import Facebook from './services/app.main.facebook';
+import KakaoTalk from './services/app.main.kakao';
+import Unique from './services/app.main.unique.model';
 
+import sendPhoneService from './services/app.main.sender-phone.service';
+import accountsManager from './services/app.main.accounts.manager';
+import SenderPhone from './services/app.main.sender-phone.model';
+import AuthPhone from './services/app.main.auth-phone.model';
 import noticeEvent from './directives/notice-event/app.main.notice-event';
+import passwordVerify from './directives/password-verify';
+import passwordChangeVerify from './directives/password-change-verify';
+
+
 
 const APP_NAME = "app.main";
 
@@ -43,17 +58,33 @@ angular.module(APP_NAME, [
     .controller('ReportCtrl', ReportCtrl)
     .controller('ReportModalCtrl', ReportModalCtrl)
     .controller('ModalInstanceCtrl', ModalInstanceCtrl)
+    .controller('SigninCtrl', SigninCtrl)
+    .controller('AuthMobileCtrl', AuthMobileCtrl)
+    .controller('SignUpCtrl', SignUpCtrl)
+    .controller('SignUpCompleteCtrl', SignUpCompleteCtrl)
+
+
     .service("navigator", navigator)
     .service("UserManager", UserManager)
     .service("UserService", UserService)
     .service("noticeManager", noticeManager)
     .service("reportsManager", reportsManager)
+    .service("accountsManager", accountsManager)
+    .service("Unique", Unique)
 
+    .factory('SenderPhone', sendPhoneService)
 
     .factory("Notice", Notice)
     .factory("Report", Report)
+    .factory('Facebook', Facebook)
+    .factory('KakaoTalk', KakaoTalk)
+    .factory("SenderPhone", SenderPhone)
+    .factory("AuthPhone", AuthPhone)
 
     .directive("noticeEvent", noticeEvent)
+    .directive('passwordVerify', passwordVerify)
+    .directive('passwordChangeVerify', passwordChangeVerify)
+
 
     .constant("appResources", appResources);
 

@@ -1,7 +1,9 @@
 var appResources = {
     SEARCH_NOTICE:'/api/etc/notices',
     SEARCH_REPORT:'/api/etc/reports',
-
+    SENDER_PHONE: '/api/accounts/sender-phone',
+    UNIQUE_CHECK: '/api/accounts/unique',
+    AUTH_PHONE: '/api/accounts/auth-phone',
     USER_PROMOTIONS: '/api/client/user-promotions',
     USER_INFO: '/api/accounts/users',
     PRODUCTS: '/api/pongift/products',
@@ -18,7 +20,6 @@ var appResources = {
     USER_SERVICES: '/api/client/user-services',
     APP_NOTICES: '/api/pongift/notices',
     PASS: '/api/accounts/pass',
-    AUTH_PHONE: '/api/accounts/auth-phone',
     PRODUCT_PROMOTIONS: '/api/client/product-promotions',
     COMPANY_INFO: '/api/admin/company-info',
     SERVICE_CATEGORIES: '/api/client/service-categories',

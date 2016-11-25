@@ -1,114 +1,98 @@
-export default function MainCtrl($scope, $location, $cookies, sessionManager, errorHandler, metaManager, navigator, UserManager, dialogHandler, $uibModal) {
+export default function MainCtrl($scope, $location, $injector, $cookies, sessionManager, errorHandler, metaManager, navigator, UserManager, dialogHandler, $uibModal) {
 
     var vm = $scope.vm = {};
     
     vm.isLoggedIn = {};
     vm.loginForm = {};
-    var form = vm.form = {};
     vm.userInfo = {};
+    vm.mobileCheckType = null;
 
     vm.isLoggedIn = sessionManager.isLoggedIn;
-
-    vm.signUp = signUp;
-    vm.logout = logout;
-    vm.login = login;
-    vm.goToSignUp = goToSignUp;
-    vm.goToLogin = goToLogin;
     vm.dialogHandler = dialogHandler;
 
+    vm.USER = metaManager.std.user;
+    vm.APP = metaManager.std.app;
 
-    if(vm.isLoggedIn()){
-        checkLogined();
+
+    vm.goToSignUp = goToSignUp;
+    vm.goToSignin = goToSignin;
+    vm.goToComplete = goToComplete;
+    vm.goToSocial = goToSocial;
+    vm.goToMobileCheck = goToMobileCheck;
+    vm.goToFindId = goToFindId;
+    vm.goToFindPass = goToFindPass;
+    vm.goToHome = goToHome;
+    vm.logout = logout;
+    vm.goToNick = goToNick;
+    vm.userLeave = userLeave;
+
+
+
+
+    function goToFindId(){
+        vm.mobileCheckType = vm.USER.authPhoneFindId;
+        navigator.goToFindId();
     }
-
-    function checkLogined(){
-        var userId = $cookies.get("userId");
-        var userInfo = $cookies.get("userInfo");
-
-        UserManager.getLoginedUserInfoById(userId, function (status, data) {
-            if (status == 200) {
-
-                vm.userInfo.email = data.email;
-                vm.userInfo.nick = data.nick;
-
-            } else {
-                // vm.exitApp();
-            }
-        });
-
+    function goToSocial(){
+        navigator.goToSocial();
     }
-
     function goToSignUp() {
         navigator.goToSignUp();
     }
 
-    function goToLogin() {
-        navigator.goToLogin();
+    function goToSignin() {
+        navigator.goToSignin();
     }
 
-    function signUp(signUpForm) {
-
-        var user = {
-            secret: signUpForm.pass,
-            uid: signUpForm.email,
-            nick: signUpForm.nick,
-            agreedEmail: true,
-            type: metaManager.std.user.defaultSignUpType
-        };
-
-
-
-        sessionManager.signup(user, function (status, data) {
-            if (status == 201) {
-                console.log(data);
-            } else {
-                errorHandler.alertError(status, data);
-            }
-        });
+    function goToComplete(){
+        navigator.goToComplete();
     }
-    
+
+    function goToMobileCheck(){
+        navigator.goToMobileCheck();
+    }
+
+    function goToFindPass(){
+        vm.mobileCheckType = vm.USER.authPhoneFindPass;
+        navigator.goToFindPass();
+    }
+
+    function goToHome(){
+        navigator.goToHome();
+    }
+
+    function goToNick(){
+        navigator.goToNick();
+    }
+
+
     function logout() {
         sessionManager.logout(function (status) {
             if (status == 204) {
-                goToLogin();
+                goToSignin();
             } else {
                 errorHandler.alertError(status);
             }
         });
     }
 
-    function login (loginForm) {
-        sessionManager.loginWithEmail(loginForm.email, loginForm.pass, function (status, data) {
-            if (status == 200) {
-
-
-                vm.userInfo.email = data.email;
-                vm.userInfo.nick = data.nick;
-
-                $cookies.put("userId", data.id);
-                $cookies.put("userInfo", data.email);
-
-                navigator.goToHome();
-            } else {
-                errorHandler.alertError(status, data);
+    function userLeave(){
+        sessionManager.getSession(function(status, data){
+            if(status == 200){
+                var userId = data.id;
+                sessionManager.deleteUser(userId, function(status){
+                    if (status == 204) {
+                        goToSignin();
+                    } else {
+                        errorHandler.alertError(status);
+                    }
+                })
             }
+
         });
+
+
     }
-
-    function deleteUser(deleteForm) {
-
-        sessionManager.deleteUser(deleteForm.email, function (status, data) {
-            if (status == 204) {
-                $cookies.remove("userinfo");
-                $cookies.remove("userId");
-                logout();
-            } else {
-                errorHandler.alertError(status, data);
-            }
-        });
-    }
-
-
 
 
 }

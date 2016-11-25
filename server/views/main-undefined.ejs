@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1"/>
     <base href="/">
     <title>Sample App</title>
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script type="text/javascript">
         window.meta = <%- JSON.stringify(params.meta || {}) %>;
         window.session = <%- JSON.stringify(params.session|| {}) %>;
         window.oauth = <%- JSON.stringify(params.oauth || {}) %>;
     </script>
     <!-- inject:css -->
+    <link rel="stylesheet" href="sg-main.css?v=0.0.1">
     <!-- endinject -->
 </head>
 <body data-ng-controller="MainCtrl">
@@ -21,6 +21,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <!-- inject:js -->
+<script src="sg-lib.js?v=0.0.1"></script>
+<script src="sg-main.js?v=0.0.1"></script>
 <!-- endinject -->
 </body>
 </html>
