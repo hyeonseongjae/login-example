@@ -11,7 +11,6 @@ export default function accountsManager (SenderPhone, AuthPhone, metaManager, Un
         }, function (data) {
             callback(data.status, data.data);
         });
-
     }
 
     function sendAuthNum(body, callback) {

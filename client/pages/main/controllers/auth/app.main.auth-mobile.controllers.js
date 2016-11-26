@@ -1,5 +1,5 @@
 
-export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, accountsManager, errorHandler, AuthPhone, sessionManager) {
+export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, accountsManager, errorHandler, AuthPhone, sessionManager, dialogHandler, navigator) {
 
     var vm = $scope.vm;
 
@@ -10,7 +10,7 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
     var type = vm.USER.authPhoneSignup;
 
     if(!vm.mobileCheckType && !vm.userSignUpInfo && !vm.authPhoneFindPass){
-        vm.goToSignUp();
+        navigator.goToSignUp();
     }
 
     if(vm.mobileCheckType == vm.USER.authPhoneFindId){
@@ -30,33 +30,34 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
         var regExp = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
         var myRe = new RegExp(regExp);
 
-        if(myRe.exec(userPhoneNumber)){
-            userPhoneNumber = vm.userPhoneNum.replace(/\-/g,'');
-            userPhoneNumber = userPhoneNumber.replace(/(^0+)/, "");
+        if(!myRe.exec(userPhoneNumber)){
+            dialogHandler.show('', vm.CODES["400_7"], '확인', false, function () {
+                return;
+            });
         }
         else{
-            window.alert("잘못된 번호를 입력하였습니다");
+
+            userPhoneNumber = vm.userPhoneNum.replace(/\-/g,'');
+            userPhoneNumber = userPhoneNumber.replace(/(^0+)/, "");
+
+            var body = {
+                phoneNum: vm.APP.defaultCountryCode+userPhoneNumber,
+                type: type
+            };
+
+
+            if (stop) $interval.cancel(stop);
+
+            accountsManager.sendAuthNum(body, function (status, data) {
+                if (status == 200) {
+                    dialogHandler.show('', '문자로 인증번호가 발송 되었습니다.', '확인', false, function () {});
+                    runCountdown();
+                    $scope.canInputAuthorzationNum = true;
+                } else {
+                    errorHandler.alertError(status, data);
+                }
+            });
         }
-
-
-
-        var body = {
-            phoneNum: vm.APP.defaultCountryCode+userPhoneNumber,
-            type: type
-        };
-
-
-        if (stop) $interval.cancel(stop);
-
-        accountsManager.sendAuthNum(body, function (status, data) {
-            if (status == 200) {
-                window.alert("인증번호가 발송 되었습니다");
-                runCountdown();
-                $scope.canInputAuthorzationNum = true;
-            } else {
-                errorHandler.alertError(status, data);
-            }
-        });
     }
 
     function certificationPhoneNum () {
@@ -67,7 +68,7 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
         }
 
         if(!vm.userSignUpInfo && type == vm.USER.authPhoneSignup){
-            vm.goToSignUp();
+            navigator.goToSignUp();
         }
 
 
@@ -100,8 +101,8 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
                     $rootScope.$broadcast("core.session.callback", {
                         type: 'login'
                     });
+                    navigator.goToComplete();
 
-                    vm.goToComplete();
                 } else {
                     errorHandler.alertError(status, data);
                 }
@@ -121,8 +122,10 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
                     vm.FindId = data.aid;
 
                     if(type == vm.USER.authPhoneFindPass){
-                        alert("비밀번호가 전송되었습니다.");
-                        vm.goToSignin();
+                        dialogHandler.show('', '비밀번호가 전송되었습니다.', '확인', false, function () {
+
+                            navigator.goToSignin();
+                        });
                     }
 
                 } else {

@@ -27,6 +27,9 @@
         li {
           display: inline-block;
           margin-right: 40px;
+          a{
+            color: white;
+          }
         }
       }
     }
@@ -85,12 +88,15 @@
           .facebook {
             background-color: #4f6ca7;
             margin-bottom: 10px;
+
             a {
               width: 100%;
               display: block;
               height: 100%;
               padding-top: 20px;
               color: #ffffff;
+              position: absolute;
+
             }
           }
           .kakaotalk {
@@ -177,6 +183,9 @@
         color: #ffffff;
         margin-bottom: 170px;
       }
+      .content-body .btn.btn-submit:hover {
+        background-color: #45a19f;
+      }
 
       &.signup-normal {
         padding-bottom: 50px;
@@ -243,6 +252,10 @@
               }
             }
 
+            input.ng-invalid.ng-pristine {
+              border: 1px solid #bfbfbf;
+            }
+
             input.ng-valid{
               border: solid 1px #1fc9c6;
             }
@@ -304,6 +317,9 @@
           color: #727272;
           a {
             color: #1fc9c6;
+          }
+          a:hover{
+            text-decoration: underline;
           }
         }
       }

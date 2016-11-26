@@ -65,7 +65,7 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
                             }
                         });
                     }
-                },1000);
+                },500);
         }
 
 
@@ -111,21 +111,21 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
     function signUp(signUpForm) {
 
         if(!signUpForm.pass || !signUpForm.uid || !signUpForm.nick){
-            errorHandler.alertError(400, "");
-            return;
+            dialogHandler.show('', vm.CODES["400_14"], '확인', false, function () {
+                return;
+            });
         }
+        else{
+            var userInfo = {
+                apass: signUpForm.pass,
+                aid: signUpForm.uid,
+                nick: signUpForm.nick
+            };
 
-
-        var user = {
-            apass: signUpForm.pass,
-            aid: signUpForm.uid,
-            nick: signUpForm.nick
-        };
-
-
-        vm.userSignUpInfo = user;
-        vm.mobileCheckType = vm.USER.authPhoneSignup;
-        vm.goToMobileCheck();
+            vm.userSignUpInfo = userInfo;
+            vm.mobileCheckType = vm.USER.authPhoneSignup;
+            vm.goToMobileCheck();
+        }
     }
 
 

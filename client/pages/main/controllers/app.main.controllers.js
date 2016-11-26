@@ -12,6 +12,7 @@ export default function MainCtrl($scope, $location, $injector, $cookies, session
 
     vm.USER = metaManager.std.user;
     vm.APP = metaManager.std.app;
+    vm.CODES = metaManager.codes.ko;
 
 
     vm.goToSignUp = goToSignUp;

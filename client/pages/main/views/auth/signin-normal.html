@@ -8,9 +8,11 @@
         <div class="content-body">
             <div class="social-signin-wrapper">
                 <div class="facebook">
+                    <div class="border-vertical"></div>
                     <a href="#" ng-click="vm.facebookLogin()">페이스북 계정으로 시작하기</a>
                 </div>
                 <div class="kakaotalk">
+                    <div class="border-vertical"></div>
                     <a href="#" ng-click="vm.kakaoLogin()">카카오톡 계정으로 시작하기</a>
                 </div>
             </div>
@@ -28,12 +30,7 @@
                     </div>
 
                     <button type="submit">로그인</button>
-                    <div class="save-pass">
-                        <div class="checks">
-                            <input type="checkbox" id="ex_chk">
-                            <label for="ex_chk">비밀번호 저장</label>
-                        </div>
-                    </div>
+
                     <div class="find-pass">
                         <p><a href="#" data-ng-click="vm.goToFindId()">아이디</a>/<a href="#" data-ng-click="vm.goToFindPass()">비밀번호찾기</a></p>
                     </div>

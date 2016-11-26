@@ -1,25 +1,42 @@
-export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dialogHandler, metaManager, sessionManager, errorHandler) {
+export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dialogHandler, metaManager, navigator, sessionManager, errorHandler) {
 
     var vm = $scope.vm;
 
     if(!vm.loginUser) {
 
         vm.signin  = function(loginForm) {
-            sessionManager.loginWithNormalId(loginForm.uid, loginForm.pass, function (status, data) {
-                if (status == 200) {
 
-                    vm.userInfo.uid = data.uid;
-                    vm.userInfo.nick = data.nick;
+            if(!loginForm.uid || !loginForm.pass){
+                dialogHandler.show('.', '아이디와 비밀번호를 입력해주세요', '확인', false, function () {
+                    return;
+                });
+            }
+            else{
+                sessionManager.loginWithNormalId(loginForm.uid, loginForm.pass, function (status, data) {
+                    console.log(status);
+                    console.log(data);
+                    if (status == 200) {
 
-                    $rootScope.$broadcast("core.session.callback", {
-                        type: 'login'
-                    });
+                        vm.userInfo.uid = data.uid;
+                        vm.userInfo.nick = data.nick;
 
-                    navigator.goToHome();
-                } else {
-                    errorHandler.alertError(status, data);
-                }
-            });
+                        $rootScope.$broadcast("core.session.callback", {
+                            type: 'login'
+                        });
+
+                        navigator.goToHome();
+                    } else {
+
+                        if(status == 400 && data[0].code == "400_2"){
+                            dialogHandler.show('', vm.CODES["400_2"], '확인', false, function () {});
+                        }
+                        else{
+                            // errorHandler.alertError(status, data);
+                        }
+                    }
+                });
+            }
+
         };
 
 
@@ -33,7 +50,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                         sessionManager.socialLogin(vm.USER.enumProviders[0], res.id, accessToken, function (status, data) {
                             if (status == 200) {
                                 vm.loginUser = data;
-                                vm.goToHome();
+                                navigator.goToHome();
 
                             } else if (status == 301 || status == 403) {
                                 // dialogHandler.show('', '아이디가 존재하지 않습니다.', '', true);
@@ -45,7 +62,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                                 };
 
 
-                                vm.goToNick();
+                                navigator.goToNick();
 
                             } else {
                                 dialogHandler.alertError(status, data);
@@ -68,7 +85,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                     sessionManager.socialLogin(vm.USER.enumProviders[3], resData.id, accessToken, function (status, data) {
                         if (status == 200) {
                             vm.loginUser = data;
-                            vm.goToHome();
+                            navigator.goToHome();
                         } else if (status == 301 || status == 403) {
                             // dialogHandler.show('', '아이디가 존재하지 않습니다.', '', true);
                             var name = "";
@@ -84,7 +101,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                                 nick: name
                             };
 
-                            vm.goToNick();
+                            navigator.goToNick();
                         } else {
                             dialogHandler.alertError(status, data);
                         }

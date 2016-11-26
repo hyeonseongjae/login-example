@@ -1,3 +1,19 @@
+$dowado-color: #1fc9c6;
+$dowado-hover-color: #45a19f;
+$dowado-red-color: #ed5565;
+$dowado-red-hover-color: #BA2232;
+$dowado-grey-color: #edf3f5;
+$dowado-font-grey-color: #6f8690;
+$dowado-font-grey-hover-color: #3C535D;
+$dowado-border-color: #d7dbdd;
+
+@mixin after-clear() {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
 @import "layouts/main-contents";
@@ -10,3 +26,4 @@
 @import "components/auth-signin";
 @import "components/auth-signup-social";
 @import "components/auth-mobile-check";
+@import "components/alert-dialog";
