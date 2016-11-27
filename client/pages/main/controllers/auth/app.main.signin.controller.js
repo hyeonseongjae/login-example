@@ -13,8 +13,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
             }
             else{
                 sessionManager.loginWithNormalId(loginForm.uid, loginForm.pass, function (status, data) {
-                    console.log(status);
-                    console.log(data);
+
                     if (status == 200) {
 
                         vm.userInfo.uid = data.uid;
@@ -30,7 +29,10 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                         if(status == 400 && data[0].code == "400_2"){
                             dialogHandler.show('', vm.CODES["400_2"], '확인', false, function () {});
                         }
-                        else{
+                        else if(status == 403 && data.code == "403_1") {
+                            dialogHandler.show('', vm.CODES["403_1"], '확인', false, function () {});
+
+                        }else{
                             // errorHandler.alertError(status, data);
                         }
                     }
@@ -111,7 +113,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
         };
 
     } else {
-        vm.goToHome();
+        navigator.goToHome();
     }
 
 

@@ -1,0 +1,138 @@
+@media only screen and (max-width: 1023px){
+  .container-wrapper.auth .container {
+    width: 480px;
+    .content {
+
+      margin: 80px auto;
+
+      .content-body {
+        margin: 50px auto;
+      }
+      &.signin{
+        margin: inherit;
+         .content-body {
+           margin: inherit;
+           .social-signin-wrapper {
+
+             .facebook,
+             .kakaotalk {
+               width: 95%;
+               margin: 10px auto;
+             }
+           }
+
+           .signin-wrapper {
+             text-align: center;
+             .signin-id-wrapper,
+             .signin-pass-wrapper,
+             button {
+               width: 95%;
+               margin: 10px auto;
+
+             }
+           }
+
+           .find-pass {
+             margin-right: 15px;
+           }
+         }
+      }
+
+      &.mobile-confirm .content-body {
+        text-align: center;
+        .mobile-confirm-wrapper,
+        .certification-wrapper {
+          width: 95%;
+          margin: 10px auto;
+
+          input {
+            width: 100%;
+          }
+        }
+
+        button.btn-submit {
+          width: 95%;
+          margin: 30px auto;
+        }
+
+      }
+
+
+      &.signup-normal{
+        text-align: center;
+        padding-bottom: 10px;
+        margin: 80px 0px 0px 0px;
+
+        .content-header{
+          margin-bottom: 30px;
+        }
+        .content-body{
+          margin: 10px auto !important;
+          .uid-wrapper,
+          .pass-wrapper,
+          .pass-confirm-wrapper,
+          .nick-wrapper{
+            width: 95%;
+            margin: 10px auto;
+          }
+        }
+
+        button.btn.btn-submit{
+          width: 95%;
+          margin: 10px auto;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 767px){
+  .container-wrapper.auth {
+    .header {
+
+      padding: 10px 10px 10px 30px !important;
+      ul.nav-menu {
+        li {
+          margin-right: 0px;
+          margin-left: 30px;
+        }
+      }
+    }
+
+    .container{
+      margin: 10px 30px;
+      width: 90%;
+
+      .content.signup-normal {
+        .content-body {
+          .uid-wrapper,
+          .pass-wrapper,
+          .pass-confirm-wrapper,
+          .nick-wrapper{
+            width: 95%;
+          }
+
+          .btn.btn-submit{
+            width: 95%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 480px){
+
+  .container-wrapper {
+    .header {
+      ul.nav-menu {
+        li {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

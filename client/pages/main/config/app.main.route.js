@@ -17,7 +17,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
             url: '/home',
             views: {
                 header:{
-                    templateUrl: 'pages/main/views/auth/header.html'
+                    templateUrl: 'pages/main/views/contents/header.html'
                 },
                 contents: {
                     templateUrl: 'pages/main/views/contents/home.html'

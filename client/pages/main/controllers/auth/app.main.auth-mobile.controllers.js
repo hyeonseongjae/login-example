@@ -62,8 +62,12 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
 
     function certificationPhoneNum () {
 
-        if(!vm.userPhoneNumCertification || !vm.userPhoneNum){
-            errorHandler.alertError(400, "");
+        if(!vm.userPhoneNum){
+            dialogHandler.show('', '휴대폰 번호를 입력해 주세요.', '확인', false, function () {});
+            return;
+        }
+        if(!vm.userPhoneNumCertification){
+            dialogHandler.show('', '인증 번호를 입력해 주세요.', '확인', false, function () {});
             return;
         }
 

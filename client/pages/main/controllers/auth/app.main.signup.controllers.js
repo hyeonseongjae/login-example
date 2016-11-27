@@ -47,25 +47,25 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
 
 
         function checkService(body, callback) {
-                $timeout(function() {
-                    if(!angular.isUndefined(body.newVal) && body.newVal != body.oldVal &&
-                        body.newVal.length < vm.USER.maxIdLength){
+            $timeout(function() {
+                if(!angular.isUndefined(body.newVal) && body.newVal != body.oldVal &&
+                    body.newVal.length < vm.USER.maxIdLength){
 
-                        var query = {
-                            key: body.key,
-                            value: body.newVal
-                        };
+                    var query = {
+                        key: body.key,
+                        value: body.newVal
+                    };
 
-                        accountsManager.checkAccountsUnique(query, function(status, data){
-                            if( status == 409){
-                                callback(false);
-                            }
-                            else{
-                                callback(true);
-                            }
-                        });
-                    }
-                },500);
+                    accountsManager.checkAccountsUnique(query, function(status, data){
+                        if( status == 409){
+                            callback(false);
+                        }
+                        else{
+                            callback(true);
+                        }
+                    });
+                }
+            },500);
         }
 
 
@@ -100,7 +100,7 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
                     type: 'login'
                 });
 
-                vm.goToComplete();
+                navigator.goToComplete();
             } else {
                 errorHandler.alertError(status, data);
             }
@@ -124,7 +124,7 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
 
             vm.userSignUpInfo = userInfo;
             vm.mobileCheckType = vm.USER.authPhoneSignup;
-            vm.goToMobileCheck();
+            navigator.goToMobileCheck();
         }
     }
 
@@ -136,7 +136,7 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
 
         sessionManager.deleteUser(deleteForm.email, function (status, data) {
             if (status == 204) {
-                logout();
+                vm.logout();
             } else {
                 errorHandler.alertError(status, data);
             }

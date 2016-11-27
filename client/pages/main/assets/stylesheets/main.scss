@@ -19,6 +19,7 @@ $dowado-border-color: #d7dbdd;
 @import "layouts/main-contents";
 @import "layouts/reset";
 
+
 @import "components/notice";
 @import "components/report";
 @import "components/auth";
@@ -27,3 +28,6 @@ $dowado-border-color: #d7dbdd;
 @import "components/auth-signup-social";
 @import "components/auth-mobile-check";
 @import "components/alert-dialog";
+@import "components/home";
+
+@import "layouts/responsive";

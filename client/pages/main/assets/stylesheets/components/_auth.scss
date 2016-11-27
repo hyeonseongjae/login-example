@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.container-wrapper {
+.container-wrapper.auth{
   background: linear-gradient(to right, #23BBC7, #2F91CB);
   height: 100vh;
   overflow: auto;
@@ -37,7 +37,7 @@
 
 
   .container {
-    min-width: 1024px;
+    //min-width: 1024px;
     max-width: 1024px;
     margin: 0 auto;
 
@@ -122,7 +122,7 @@
             height: 1px;
             position: relative;
             vertical-align: middle;
-            width: 46%;
+            width: 45%;
           }
           span {}
         }
