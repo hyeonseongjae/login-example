@@ -32,54 +32,169 @@
 }
 
 .container-wrapper.home{
-  padding: 50px 135px;
+
 
   .container{
+    padding: 50px 135px;
+    .theme-wrapper{
+      overflow: auto;
+      margin-bottom: 30px;
+      position: relative;
 
-    h3.theme-title{
-      span{
+      h3.theme-title{
+        padding-left: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #e24e47;
+        span{
+          color: #b8b8b8;
+        }
+      }
 
+      a.more{
+
+        position: absolute;
+        top: 0;
+        right: 20px;
+        color: #b8b8b8;
+        font-size: 18px;
+      }
+
+      .contents-warpper{
+        width:100%;
+
+        .content-warpper{
+          overflow: auto;
+          width: 30%;
+          float: left;
+          margin: 20px 1.6%;
+          .image-wrapper{
+            width: 100%;
+            overflow: auto;
+
+            .main-img{
+              width: 100%;
+              height: 200px;
+              background-image: url("http://mblogthumb1.phinf.naver.net/MjAxNjExMjdfMjEg/MDAxNDgwMjIzMTA0MDk3.9mk6XEJXDaMpq9lPqBTF9UKa8xJ4QOgT8pnCIo43qEAg.pYv0Jf5xLCCqk89Z5kejflTuu3Xl_b5IJ4MfMqZ1i68g.JPEG.hwaim100/20161127_131947.jpg?type=w420");
+              background-repeat: no-repeat;
+              margin-bottom: 1px;
+            }
+            .second-img,
+            .third-img{
+              width: 49%;
+              height: 100px;
+              float: left;
+              margin-top: 1%;
+            }
+
+            .second-img{
+              width: 49.5%;
+              height: 100px;
+              background-image: url("http://mblogthumb1.phinf.naver.net/MjAxNjExMjZfNzEg/MDAxNDgwMTQ0NTE5Nzgx.hoO68P8COoHi30qjRpGQyqa0v50XP8uhO4h4eEHNqjYg.BfuUdDd7tWpWZ4CioLfr2gFm0hoTV1S9sq9L9N43TdAg.JPEG.hwaim100/IMG_20161126_5.jpg?type=w420");
+              margin-right: 0.5%;
+            }
+
+            .third-img{
+              margin-left: 0.5%;
+              background-image: url("http://mblogthumb4.phinf.naver.net/MjAxNjExMjVfMjcz/MDAxNDgwMDQ2MDM4MzQx.4n1lsDSVVnuIZAo_GLay-7IBBK5yj_e_zg-Alp3nzcgg.EClMnhhsz3Z2cmX76laOP78U0Y0ryMf48IFckvIrwJ0g.JPEG.hwaim100/IMG_2596.JPG?type=w420");
+            }
+
+          }
+
+          .profile-wrapper{
+            margin-top: 10px;
+            img{
+              border-radius:  50%;
+              width: 50px;
+            }
+            h4{
+              margin: 10px 0px;
+            }
+            p{
+              min-height: 53px;
+              font-family: '나눔고딕';
+              font-size: 15px;
+              line-height: 25px;
+              color: #888;
+            }
+            span{
+              color: #bbb;
+              font-size: 14px;
+            }
+          }
+        }
       }
     }
 
-    .contents-warpper{
-      width:100%;
+  }
 
-      .content-warpper{
-        width: 30%;
+  .container.blog-info{
+    position: relative;
+    padding-top: 150px;
+
+    .container-title{
+      position: absolute;
+      top: 20px;
+      left: 45%;
+      width: 110px;
+      height: 110px;
+      z-index: 10;
+      background-color: #e24e47;
+      color: white;
+      font-size: 34px;
+      padding: 8px;
+      text-align: center;
+      padding-top: 15px;
+    }
+
+    background-color: #f9f9f9;
+    overflow: auto;
+
+    p.desc{
+      color: #888;
+      text-align: center;
+    }
+
+    .blog_list {
+      .blog{
+        width: 45%;
         float: left;
-        .image-wrapper{
-          width: 100%;
+        margin-right: 5%;
+        height: 100px;
+        margin-top: 30px;
+        border-bottom: 1px solid #ddd;
 
-          .main-img{
-            width: 100%;
-            height: 200px;
-            background-image: url("http://mblogthumb1.phinf.naver.net/MjAxNjExMjdfMjEg/MDAxNDgwMjIzMTA0MDk3.9mk6XEJXDaMpq9lPqBTF9UKa8xJ4QOgT8pnCIo43qEAg.pYv0Jf5xLCCqk89Z5kejflTuu3Xl_b5IJ4MfMqZ1i68g.JPEG.hwaim100/20161127_131947.jpg?type=w420");
-            background-repeat: no-repeat;
-            margin-bottom: 1px;
-          }
-          .second-img,
-          .third-img{
-            width: 49%;
-            height: 100px;
-            margin-right: 1%;
-
-            float: left;
-          }
-
-          .second-img{
-            width: 49%;
-            height: 100px;
-            background-image: url("http://mblogthumb1.phinf.naver.net/MjAxNjExMjZfNzEg/MDAxNDgwMTQ0NTE5Nzgx.hoO68P8COoHi30qjRpGQyqa0v50XP8uhO4h4eEHNqjYg.BfuUdDd7tWpWZ4CioLfr2gFm0hoTV1S9sq9L9N43TdAg.JPEG.hwaim100/IMG_20161126_5.jpg?type=w420");
-          }
-
-          .third-img{
-
-            background-image: url("http://mblogthumb4.phinf.naver.net/MjAxNjExMjVfMjcz/MDAxNDgwMDQ2MDM4MzQx.4n1lsDSVVnuIZAo_GLay-7IBBK5yj_e_zg-Alp3nzcgg.EClMnhhsz3Z2cmX76laOP78U0Y0ryMf48IFckvIrwJ0g.JPEG.hwaim100/IMG_2596.JPG?type=w420");
-          }
-
+        img{
+          border-radius: 50%;
+          width: 80px;
+          float: left;
         }
+
+        .meta{
+          float: left;
+          padding-left: 20px;
+          padding-top: 10px;
+
+          .nick{
+
+          }
+          .name{
+            min-height: 19px;
+            padding-top: 8px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #888;
+          }
+          .date{
+            display: inline-block;
+            padding-top: 0;
+            font-size: 14px;
+            color: #66aec8;
+          }
+        }
+
       }
+
     }
   }
 }

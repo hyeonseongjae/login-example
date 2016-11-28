@@ -33,7 +33,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                             dialogHandler.show('', vm.CODES["403_1"], '확인', false, function () {});
 
                         }else{
-                            // errorHandler.alertError(status, data);
+                            errorHandler.alertError(status, data);
                         }
                     }
                 });
@@ -91,7 +91,6 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                         } else if (status == 301 || status == 403) {
                             // dialogHandler.show('', '아이디가 존재하지 않습니다.', '', true);
                             var name = "";
-                            console.log(resData.properties);
                             if(resData.properties){
                                 name = resData.properties.nickname;
                             }
