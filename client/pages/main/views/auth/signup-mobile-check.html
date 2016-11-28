@@ -6,18 +6,18 @@
 
 
             <div class="content-header" data-ng-if="vm.mobileCheckType == vm.USER.authPhoneFindId">
-                <h3>아이디 찾기</h3>
-                <p>회원가입시 입력한 휴대폰 번호가 필요합니다.</p>
+                <h3>{{'idFind' | translate}}</h3>
+                <p>{{'signUpNeedConfirm' | translate}}</p>
             </div>
 
             <div class="content-header" data-ng-if="vm.mobileCheckType == vm.USER.authPhoneFindPass">
-                <h3>임시 비번 발급</h3>
-                <p>회원가입시 입력한 휴대폰 번호가 필요합니다.</p>
+                <h3>{{'tempPass' | translate}}</h3>
+                <p>{{'signUpNeedConfirm' | translate}}</p>
             </div>
 
             <div class="content-header" data-ng-if="vm.mobileCheckType == vm.USER.authPhoneSignup">
-                <h3>휴대폰 인증이 필요해요.</h3>
-                <p>공고에 지원하기 위해 필수입니다.</p>
+                <h3>{{'phoneNeedConfirm' | translate}}</h3>
+                <p>{{'phoneNeedConfirmDesc' | translate}}</p>
             </div>
 
 
@@ -30,14 +30,14 @@
                     <div  class="mobile-confirm-wrapper">
                         <input type="text" placeholder="휴대폰 번호" data-ng-model="vm.userPhoneNum">
                         <span data-ng-if="vm.remainTime">{{vm.remainTime}}</span>
-                        <button type="button" data-ng-click="vm.sendAuthNum()">인증하기</button>
+                        <button type="button" data-ng-click="vm.sendAuthNum()">{{'certification' | translate}}</button>
                     </div>
 
                     <div class="certification-wrapper">
                         <input type="text" placeholder="인증번호 입력" data-ng-model="vm.userPhoneNumCertification">
                     </div>
 
-                    <button type="submit" class="btn btn-submit" data-ng-click="vm.certificationPhoneNum()"> 확인 </button>
+                    <button type="submit" class="btn btn-submit" data-ng-click="vm.certificationPhoneNum()"> {{'confirm' | translate}} </button>
                 </form>
 
 
@@ -47,9 +47,9 @@
                         <img src="/pages/main/assets/images/phone_g_40x67.png">
                     </div>
                     <div class="find-id-wrapper">
-                        <span data-ng-show="vm.FindId">해당 아이디는 <b>{{vm.FindId}}</b> 입니다</span>
+                        <span data-ng-show="vm.FindId">{{'idFindDesc1' | translate}} <b>{{vm.FindId}}</b> {{'done' | translate}}</span>
                     </div>
-                    <a class="btn btn-submit" data-ng-click="vm.goToSignin()"> 로그인 </a>
+                    <a class="btn btn-submit" data-ng-click="vm.goToSignin()"> {{'login' | translate}} </a>
                 </div>
 
 

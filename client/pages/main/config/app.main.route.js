@@ -123,6 +123,17 @@ export default function routes($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('auth.profile', {
+            url: '/profile',
+            views: {
+                header:{
+                    templateUrl: 'pages/main/views/auth/header.html'
+                },
+                contents: {
+                    templateUrl: 'pages/main/views/auth/profile.html'
+                }
+            }
+        })
 
 
         //

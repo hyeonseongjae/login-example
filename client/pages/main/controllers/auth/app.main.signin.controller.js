@@ -7,7 +7,7 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
         vm.signin  = function(loginForm) {
 
             if(!loginForm.uid || !loginForm.pass){
-                dialogHandler.show('.', '아이디와 비밀번호를 입력해주세요', '확인', false, function () {
+                dialogHandler.show('.', vm.LANGS.needIdPass, vm.LANGS.confirm, false, function () {
                     return;
                 });
             }
@@ -27,10 +27,10 @@ export default function SigninCtrl($scope, $rootScope, Facebook, KakaoTalk,  dia
                     } else {
 
                         if(status == 400 && data[0].code == "400_2"){
-                            dialogHandler.show('', vm.CODES["400_2"], '확인', false, function () {});
+                            dialogHandler.show('', vm.CODES["400_2"], vm.LANGS.confirm, false, function () {});
                         }
                         else if(status == 403 && data.code == "403_1") {
-                            dialogHandler.show('', vm.CODES["403_1"], '확인', false, function () {});
+                            dialogHandler.show('', vm.CODES["403_1"], vm.LANGS.confirm, false, function () {});
 
                         }else{
                             errorHandler.alertError(status, data);

@@ -9,6 +9,11 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
     vm.certificationPhoneNum = certificationPhoneNum;
     var type = vm.USER.authPhoneSignup;
 
+    vm.FindId = null;
+    vm.userPhoneNum = null;
+    vm.userPhoneNumCertification = null;
+    vm.remainTime = null;
+
     if(!vm.mobileCheckType && !vm.userSignUpInfo && !vm.authPhoneFindPass){
         navigator.goToSignUp();
     }
@@ -31,7 +36,7 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
         var myRe = new RegExp(regExp);
 
         if(!myRe.exec(userPhoneNumber)){
-            dialogHandler.show('', vm.CODES["400_7"], '확인', false, function () {
+            dialogHandler.show('', vm.CODES["400_7"], vm.LANGS.confirm, false, function () {
                 return;
             });
         }
@@ -46,11 +51,13 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
             };
 
 
-            if (stop) $interval.cancel(stop);
+            if (stop){
+                $interval.cancel(stop);
+            }
 
             accountsManager.sendAuthNum(body, function (status, data) {
                 if (status == 200) {
-                    dialogHandler.show('', '문자로 인증번호가 발송 되었습니다.', '확인', false, function () {});
+                    dialogHandler.show('', vm.LANGS.sendPassToPhone , vm.LANGS.confirm, false, function () {});
                     runCountdown();
                     $scope.canInputAuthorzationNum = true;
                 } else {
@@ -63,11 +70,11 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
     function certificationPhoneNum () {
 
         if(!vm.userPhoneNum){
-            dialogHandler.show('', '휴대폰 번호를 입력해 주세요.', '확인', false, function () {});
+            dialogHandler.show('', vm.LANGS.insertPhoneNum , vm.LANGS.confirm, false, function () {});
             return;
         }
         if(!vm.userPhoneNumCertification){
-            dialogHandler.show('', '인증 번호를 입력해 주세요.', '확인', false, function () {});
+            dialogHandler.show('', vm.LANGS.insertCertNum , vm.LANGS.confirm, false, function () {});
             return;
         }
 
@@ -105,7 +112,9 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
                     $rootScope.$broadcast("core.session.callback", {
                         type: 'login'
                     });
+
                     navigator.goToComplete();
+
 
                 } else {
                     errorHandler.alertError(status, data);
@@ -124,10 +133,12 @@ export default function AuthMobileCtrl($scope, $rootScope, $state, $interval, ac
                 if (status == 200) {
 
                     vm.FindId = data.aid;
+                    $interval.cancel(stop);
+
 
                     if(type == vm.USER.authPhoneFindPass){
-                        dialogHandler.show('', '비밀번호가 전송되었습니다.', '확인', false, function () {
-
+                        dialogHandler.show('', vm.LANGS.sendTempPassToPhone, vm.LANGS.confirm, false, function () {
+                            vm.mobileCheckType = null;
                             navigator.goToSignin();
                         });
                     }

@@ -111,7 +111,7 @@ export default function SigninCtrl($scope, Facebook, $rootScope, $timeout, dialo
     function signUp(signUpForm) {
 
         if(!signUpForm.pass || !signUpForm.uid || !signUpForm.nick){
-            dialogHandler.show('', vm.CODES["400_14"], '확인', false, function () {
+            dialogHandler.show('', vm.CODES["400_14"], vm.LANGS.confirm, false, function () {
                 return;
             });
         }

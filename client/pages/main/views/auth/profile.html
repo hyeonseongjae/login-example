@@ -1,0 +1,62 @@
+<div class="container auth signup">
+
+
+    <div class="content profile" data-ng-controller="ProfileCtrl">
+        <div class="content-header">
+            <span>비밀번호 변경</span>
+            <span>계정 삭제</span>
+        </div>
+        <div class="content-body">
+            <form id="profilePassChangeForm" name="profilePassChangeForm" data-ng-submit="vm.profilePassChange(profilePassChangeForm)" validate>
+
+
+
+                <div class="now-pass-wrapper">
+                    <input type="password" name="nowPassword" required data-ng-model="profilePassChangeForm.nowPass"
+                           data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
+                           data-ng-pattern="/^(\w)+$/"  />
+                    <span class="floating-label">{{'nowPass' | translate}}</span>
+                    <img data-ng-hide="profilePassChangeForm.nowPassword.$error.pattern || profilePassChangeForm.nowPassword.$error.required ||
+                        profilePassChangeForm.nowPassword.$error.minlength || profilePassChangeForm.nowPassword.$error.maxlength "
+                         src="/pages/main/assets/images/check_t_24.png" alt="">
+                </div>
+                <p class="help-block" ng-show="profilePassChangeForm.nowPassword.$error.pattern">{{'signUpIdPattern' | translate}}</p>
+                <p class="help-block" ng-show="profilePassChangeForm.nowPassword.$error.minlength">{{vm.USER.minSecretLength}}{{ 'minLengthAlert' | translate}}</p>
+
+
+
+                <div class="pass-wrapper">
+                    <input type="password" name="password" required data-ng-model="profilePassChangeForm.pass"
+                           data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
+                           data-ng-pattern="/^(\w)+$/"  />
+                    <span class="floating-label">{{'pass' | translate}}({{vm.USER.minSecretLength}}{{'minLength' | translate}})</span>
+                    <img data-ng-hide="profilePassChangeForm.password.$error.pattern || profilePassChangeForm.password.$error.required ||
+                        profilePassChangeForm.password.$error.minlength || profilePassChangeForm.password.$error.maxlength "
+                         src="/pages/main/assets/images/check_t_24.png" alt="">
+                </div>
+                <p class="help-block" ng-show="profilePassChangeForm.password.$error.pattern">{{'signUpIdPattern' | translate}}</p>
+                <p class="help-block" ng-show="profilePassChangeForm.password.$error.minlength">{{vm.USER.minSecretLength}}{{ 'minLengthAlert' | translate}}</p>
+
+                <div class="pass-confirm-wrapper">
+                    <input type="password" required name="passwordConfirm" data-ng-model="profilePassChangeForm.passConfirm"
+                           data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
+                           password-verify="signupForm.pass"
+                           placeholder="" autocomplete="off" />
+                    <span class="floating-label">{{'passConfirm' | translate}}</span>
+                    <img data-ng-hide="profilePassChangeForm.passwordConfirm.$error.pattern || profilePassChangeForm.passwordConfirm.$error.required
+                        || profilePassChangeForm.passwordConfirm.$error.minlength || profilePassChangeForm.passwordConfirm.$error.maxlength ||
+                        profilePassChangeForm.passwordConfirm.$error.passwordVerify "
+                         src="/pages/main/assets/images/check_t_24.png" alt="">
+                </div>
+                <p class="help-block" ng-model="signupForm.passConfirm"
+                   ng-if="profilePassChangeForm.passwordConfirm.$error.passwordVerify">{{'passwordVerify' | translate}}</p>
+
+
+                <button type="submit" class="btn btn-submit"> {{'confirm' | translate}} </button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

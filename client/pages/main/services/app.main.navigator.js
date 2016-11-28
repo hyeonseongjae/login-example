@@ -15,6 +15,7 @@ export default function navigator($document, $state) {
     this.goToFindId = goToFindId;
     this.goToFindPass = goToFindPass;
     this.goToNick = goToNick;
+    this.goToProfile = goToProfile;
     var self = this;
 
     function goTo (name, param, reload, callback) {
@@ -81,5 +82,9 @@ export default function navigator($document, $state) {
 
     function goToNick(){
         goTo("auth.nick");
+    }
+
+    function goToProfile(){
+        goTo("auth.profile")
     }
 }

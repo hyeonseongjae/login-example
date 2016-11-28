@@ -2,8 +2,8 @@
 
     <div class="content signup-normal" data-ng-controller="SignUpCtrl">
         <div class="content-header">
-            <h3>회원가입</h3>
-            <p>가입하고 도와도의 더 많은 기능을 이용하세요.</p>
+            <h3>{{ 'signUp' | translate }}</h3>
+            <p>{{ 'dowadoSignUpEx' | translate }}</p>
         </div>
         <div class="content-body">
             <div class="form-wrapper">
@@ -15,14 +15,14 @@
                                data-ng-maxlength="vm.USER.maxIdLength" autofocus
 
                                 />
-                        <span class="floating-label">아이디</span>
+                        <span class="floating-label">{{ 'id' | translate }}</span>
                         <img data-ng-hide="signupForm.id.$error.pattern || signupForm.id.$error.required ||
                         signupForm.id.$error.minlength || signupForm.id.$error.maxlength || signupForm.id.$error.unique"
                              src="/pages/main/assets/images/check_t_24.png" alt="">
                     </div>
 
-                    <p class="help-block" ng-show="signupForm.id.$error.pattern">아아디에 한글은 사용할 수 없습니다.</p>
-                    <p class="help-block" ng-show="signupForm.id.$error.unique">중복 아이디 입니다. </p>
+                    <p class="help-block" ng-show="signupForm.id.$error.pattern">{{'idUseNotKorean' | translate}}</p>
+                    <p class="help-block" ng-show="signupForm.id.$error.unique">{{'duplicateId' | translate}} </p>
 
 
 
@@ -31,50 +31,50 @@
                         <input type="password" name="password" required data-ng-model="signupForm.pass"
                                data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
                                data-ng-pattern="/^(\w)+$/"  />
-                        <span class="floating-label">비밀번호(6자리 이상)</span>
+                        <span class="floating-label">{{'pass' | translate}}({{vm.USER.minSecretLength}}{{'minLength' | translate}})</span>
                         <img data-ng-hide="signupForm.password.$error.pattern || signupForm.password.$error.required ||
                         signupForm.password.$error.minlength || signupForm.password.$error.maxlength "
                              src="/pages/main/assets/images/check_t_24.png" alt="">
                     </div>
-                    <p class="help-block" ng-show="signupForm.password.$error.pattern">숫자와 문자만을 입력할 수 있습니다.</p>
-                    <p class="help-block" ng-show="signupForm.password.$error.minlength">6글자 이상을 입력하세요.</p>
+                    <p class="help-block" ng-show="signupForm.password.$error.pattern">{{'signUpIdPattern' | translate}}</p>
+                    <p class="help-block" ng-show="signupForm.password.$error.minlength">{{vm.USER.minSecretLength}}{{ 'minLengthAlert' | translate}}</p>
 
                     <div class="pass-confirm-wrapper">
                         <input type="password" required name="passwordConfirm" data-ng-model="signupForm.passConfirm"
                                data-ng-minlength="vm.USER.minSecretLength" data-ng-maxlength="vm.USER.maxSecretLength"
                                password-verify="signupForm.pass"
                                placeholder="" autocomplete="off" />
-                        <span class="floating-label">비밀번호 확인</span>
+                        <span class="floating-label">{{'passConfirm' | translate}}</span>
                         <img data-ng-hide="signupForm.passwordConfirm.$error.pattern || signupForm.passwordConfirm.$error.required
                         || signupForm.passwordConfirm.$error.minlength || signupForm.passwordConfirm.$error.maxlength ||
                         signupForm.passwordConfirm.$error.passwordVerify "
                              src="/pages/main/assets/images/check_t_24.png" alt="">
                     </div>
                     <p class="help-block" ng-model="signupForm.passConfirm"
-                       ng-if="signupForm.passwordConfirm.$error.passwordVerify">패스워드가 일치하지 않습니다.</p>
+                       ng-if="signupForm.passwordConfirm.$error.passwordVerify">{{'passwordVerify' | translate}}</p>
 
                     <div class="hr">
-                        <span>그리고</span>
+                        <span>{{'and' | translate}}</span>
                     </div>
 
                     <div class="nick-wrapper">
                         <input type="text" required  name="nickname" data-ng-model="signupForm.nick"
                                data-ng-minlength="vm.USER.minNameLength" data-ng-minlength="vm.USER.maxNameLength" />
-                        <span class="floating-label">도와도 닉네임</span>
+                        <span class="floating-label">{{'dowado' | translate}} {{'nick' | translate}}</span>
                         <img data-ng-hide="signupForm.nickname.$error.pattern || signupForm.nickname.$error.required ||
                         signupForm.nickname.$error.minlength || signupForm.nickname.$error.maxlength || signupForm.nickname.$error.unique"
                              src="/pages/main/assets/images/check_t_24.png" alt="">
-                        <p class="help-block" ng-show="signupForm.nickname.$error.unique">중복 닉네임 입니다. </p>
+                        <p class="help-block" ng-show="signupForm.nickname.$error.unique">{{'nickUnique' | translate}} </p>
                     </div>
 
-                    <button type="submit" class="btn btn-submit" ng-disabled=" !signupForm.nickname.$error && !signupForm.passwordConfirm.$error && !signupForm.id.$error"> 확인 </button>
+                    <button type="submit" class="btn btn-submit" ng-disabled=" !signupForm.nickname.$error && !signupForm.passwordConfirm.$error && !signupForm.id.$error"> {{'confirm' | translate}} </button>
                 </form>
             </div>
 
         </div>
 
         <div class="content-footer" data-ng-controller="SigninCtrl">
-            <p><a href="#"  ng-click="vm.facebookLogin()">페이스북</a> 또는 <a href="#" ng-click="vm.kakaoLogin()">카카오톡</a> 으로 3초만에 가입하기</p>
+            <p><a href="#"  ng-click="vm.facebookLogin()">{{'facebook' | translate}}</a> {{'or' | translate}} <a href="#" ng-click="vm.kakaoLogin()">{{'kakao' | translate}}</a> {{'forSignUp' | translate}}</p>
         </div>
     </div>
 

@@ -13,6 +13,8 @@ export default function MainCtrl($scope, $location, $injector, $cookies, session
     vm.USER = metaManager.std.user;
     vm.APP = metaManager.std.app;
     vm.CODES = metaManager.codes.ko;
+    vm.LANGS = metaManager.langs.ko;
+
 
 
     vm.goToSignUp = goToSignUp;
@@ -26,6 +28,7 @@ export default function MainCtrl($scope, $location, $injector, $cookies, session
     vm.logout = logout;
     vm.goToNick = goToNick;
     vm.userLeave = userLeave;
+    vm.goToProfile = goToProfile;
 
 
 
@@ -64,6 +67,10 @@ export default function MainCtrl($scope, $location, $injector, $cookies, session
 
     function goToNick(){
         navigator.goToNick();
+    }
+
+    function goToProfile(){
+        navigator.goToProfile();
     }
 
 

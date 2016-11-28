@@ -20,6 +20,7 @@ import SigninCtrl from './controllers/auth/app.main.signin.controller';
 import AuthMobileCtrl from './controllers/auth/app.main.auth-mobile.controllers';
 import SignUpCtrl from './controllers/auth/app.main.signup.controllers';
 import SignUpCompleteCtrl from './controllers/auth/app.main.signup-complete.controller';
+import ProfileCtrl from './controllers/auth/app.main.profile.controller';
 
 import appResources from './services/app.main.constant';
 import navigator from './services/app.main.navigator';
@@ -32,6 +33,7 @@ import Report from './services/app.main.report.model';
 import Facebook from './services/app.main.facebook';
 import KakaoTalk from './services/app.main.kakao';
 import Unique from './services/app.main.unique.model';
+import Pass from './services/app.main.pass.model';
 
 import sendPhoneService from './services/app.main.sender-phone.service';
 import accountsManager from './services/app.main.accounts.manager';
@@ -62,6 +64,7 @@ angular.module(APP_NAME, [
     .controller('AuthMobileCtrl', AuthMobileCtrl)
     .controller('SignUpCtrl', SignUpCtrl)
     .controller('SignUpCompleteCtrl', SignUpCompleteCtrl)
+    .controller('ProfileCtrl', ProfileCtrl)
 
 
     .service("navigator", navigator)
@@ -71,6 +74,7 @@ angular.module(APP_NAME, [
     .service("reportsManager", reportsManager)
     .service("accountsManager", accountsManager)
     .service("Unique", Unique)
+    .service("Pass", Pass)
 
     .factory('SenderPhone', sendPhoneService)
 
@@ -80,6 +84,7 @@ angular.module(APP_NAME, [
     .factory('KakaoTalk', KakaoTalk)
     .factory("SenderPhone", SenderPhone)
     .factory("AuthPhone", AuthPhone)
+
 
     .directive("noticeEvent", noticeEvent)
     .directive('passwordVerify', passwordVerify)

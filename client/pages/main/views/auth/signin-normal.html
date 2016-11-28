@@ -3,44 +3,44 @@
 
     <div class="content signin">
         <div class="content-header">
-            <h3>로그인</h3>
+            <h3>{{ 'login' | translate }}</h3>
         </div>
         <div class="content-body">
             <div class="social-signin-wrapper">
                 <div class="facebook">
                     <div class="border-vertical"></div>
-                    <a href="#" ng-click="vm.facebookLogin()">페이스북 계정으로 시작하기</a>
+                    <a href="#" ng-click="vm.facebookLogin()">{{ 'facebookSignUp' | translate }}</a>
                 </div>
                 <div class="kakaotalk">
                     <div class="border-vertical"></div>
-                    <a href="#" ng-click="vm.kakaoLogin()">카카오톡 계정으로 시작하기</a>
+                    <a href="#" ng-click="vm.kakaoLogin()">{{ 'kakaoSignUp' | translate }}</a>
                 </div>
             </div>
 
             <div class="hr">
-                <span>또는</span>
+                <span>{{ 'or' | translate }}</span>
             </div>
             <form id="signinForm" name="signinForm" data-ng-submit="vm.signin(signinForm)" novalidate>
                 <div class="signin-wrapper">
                     <div class="signin-id-wrapper">
-                        <input type="text" placeholder="아이디" data-ng-model="signinForm.uid" />
+                        <input type="text" placeholder="{{ 'id' | translate }}" data-ng-model="signinForm.uid" />
                     </div>
                     <div class="signin-pass-wrapper">
-                        <input type="password" placeholder="비밀번호" data-ng-model="signinForm.pass" />
+                        <input type="password" placeholder="{{ 'pass' | translate }}" data-ng-model="signinForm.pass" />
                     </div>
 
-                    <button type="submit">로그인</button>
+                    <button type="submit">{{ 'login' | translate }}</button>
 
                     <div class="find-pass">
-                        <p><a href="#" data-ng-click="vm.goToFindId()">아이디</a>/<a href="#" data-ng-click="vm.goToFindPass()">비밀번호찾기</a></p>
+                        <p><a href="#" data-ng-click="vm.goToFindId()">{{ 'id' | translate }}</a>/<a href="#" data-ng-click="vm.goToFindPass()">{{ 'passFind' | translate }}</a></p>
                     </div>
                 </div>
             </form>
         </div>
         <div class="content-footer">
             <div class="signup-wrapper">
-                <span>도와도가 처음이신가요?</span>
-                <a href="#" data-ng-click="vm.goToSignUp()">회원가입</a>
+                <span>{{ 'dowadoFirst' | translate }}</span>
+                <a href="#" data-ng-click="vm.goToSignUp()">{{ 'signUp' | translate }}</a>
 
             </div>
         </div>
